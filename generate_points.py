@@ -31,7 +31,6 @@ def plot_points(classes, x, y):
     clf = KNeighborsClassifier()
 
     X = numpy.column_stack((x, y))
-    print(X)
     clf.fit(X, classes)
     x_min, x_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     y_min, y_max = X[:, 1].min() - 1, X[:, 1].max() + 1
@@ -48,7 +47,6 @@ def plot_points(classes, x, y):
             colors.append('red')
         else:
             colors.append('blue')
-    plt.scatter(x, y)
     for i, value in enumerate(x):
         plt.scatter(x[i], y[i], color=colors[i])
 
@@ -62,6 +60,3 @@ if __name__ == '__main__':
     x, y = generate_points()
     classes, x, y = assign_class(x, y, 0.5, 4, 1)
     plot_points(classes, x, y)
-
-
-
